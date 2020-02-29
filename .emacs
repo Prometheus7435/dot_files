@@ -125,16 +125,16 @@
 (setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq my-onlinep nil)
-(unless
-    (condition-case nil
-        (delete-process
-         (make-network-process
-          :name "my-check-internet"
-          :host "elpa.gnu.org"
-          :service 80))
-      (error t))
-  (setq my-onlinep t))
+;(setq my-onlinep nil)
+;(unless
+;    (condition-case nil
+;        (delete-process
+;         (make-network-process
+;          :name "my-check-internet"
+;          :host "elpa.gnu.org"
+;          :service 80))
+;      (error t))
+;  (setq my-onlinep t))
 
 (setq my-packages
       '(elpy
@@ -197,11 +197,11 @@
 	markdown-mode
 	org-edit-latex))
 
-(when my-onlinep
-  '(package-refresh-contents)
-  (cl-loop for p in my-packages
-           unless (package-installed-p p)
-           do (package-install p)))
+;(when my-onlinep
+;  '(package-refresh-contents)
+(cl-loop for p in my-packages
+         unless (package-installed-p p)
+         do (package-install p))
 
 
 ;; (setq package-list '(elpy afternoon-theme borland-blue-theme calmer-forest-theme challenger-deep-theme color-theme-sanityinc-solarized cyberpunk-theme dakrone-theme distinguished-theme doneburn-theme dracula-theme eclipse-theme espresso-theme exotica-theme latex-preview-pane flycheck org pkg-info tablist xml-rpc xml+ xml-quotes xmlgen pretty-symbols auctex-lua writeroom-mode prettify-greek ample-zen-theme arjen-grey-theme atom-dark-theme auto-complete badger-theme blackboard-theme cheatsheet darcula-theme darkroom darktooth-theme html-to-markdown auctex-latexmk abyss-theme airline-themes alect-themes atom-one-dark-theme badwolf-theme ebib tex-smart-umlauts textmate toxi-theme typit typo underwater-theme org2blog ox-hugo auto-dictionary cdlatex latex-extra latex-math-preview latex-unicode-math-mode markdown-mode org-edit-latex))
@@ -249,3 +249,6 @@
 (setq org-default-notes-file (concat "Dropbox/GTD/inbox.org"))
 ;; Bind Org Capture to C-c c
 (global-set-key "\C-cc" 'org-capture)
+
+;;  Programming Defaults   ;;
+(elpy-enable)  ;; Python
