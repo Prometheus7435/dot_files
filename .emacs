@@ -63,6 +63,8 @@
 
 ;; Global prettification
 (setq inhibit-startup-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 (load-theme 'abyss t)
 (global-linum-mode t)
 (set-default-font "Courier Prime Code-12" nil t)
