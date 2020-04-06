@@ -67,7 +67,8 @@
 (tool-bar-mode -1)
 (load-theme 'abyss t)
 (global-linum-mode t)
-(set-default-font "Courier Prime Code-12" nil t)
+(setq column-number-mode t)
+(set-default-font "Source Code Pro-12" nil t)
 ;;  Courier Prime Code
 ;;  Inconsolata
 ;; ---------------------
