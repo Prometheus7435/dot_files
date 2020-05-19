@@ -68,6 +68,7 @@
 (load-theme 'abyss t)
 (global-linum-mode t)
 (setq column-number-mode t)
+(setq frame-title-format "%b")
 (set-default-font "Source Code Pro-12" nil t)
 ;;  Courier Prime Code
 ;;  Inconsolata
@@ -108,3 +109,8 @@
 
 ;; Bind Org Capture to C-c c
 (global-set-key "\C-cc" 'org-capture)
+(setq org-default-notes-file (concat "~/Nextcloud/GTD/inbox.org"))
+(add-to-list 'org-capture-templates
+             '("w" "Work-related Task"  entry
+               (file "~/Nextcloud/GTD/work.org")
+               "* TODO %?" :empty-lines 1))
