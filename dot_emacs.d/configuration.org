@@ -1,6 +1,6 @@
 #+TITLE: Emacs Configuration
-#+AUTHOR: Zachary Bombay
-#+EMAIL: zacharybombay@gmail.com
+#+AUTHOR: Zach
+#+EMAIL:
 #+OPTIONS: toc:nil num:nil
 This is a test org config file that's a frankenstein from
  https://github.com/hrs/dotfiles/blob/main/emacs/dot-emacs.d/configuration.org
@@ -101,10 +101,10 @@ Define a big ol' bunch of handy utility functions.
 
 * UI preferences
 ** =treemacs=
-#+begin_src emacs-lisp
-  (use-package treemacs)
-;;  (treemacs-enable)
-#+end_src
+# #+begin_src emacs-lisp
+#   (use-package treemacs)
+# ;;  (treemacs-enable)
+# #+end_src
 ** Tweak window chrome
 
 I don't usually use the menu or scroll bar, and they take up useful space.
@@ -370,7 +370,7 @@ project root (if I'm not in a "real" project).
 	  projectile-require-project-root nil))
 #+end_src
 
-# ** =restclient=
+** =restclient=
 
 # #+begin_src emacs-lisp
 #   (use-package restclient)
@@ -379,7 +379,7 @@ project root (if I'm not in a "real" project).
 #     (add-to-list 'company-backends 'company-restclient))
 # #+end_src
 
-# ** =undo-tree=
+** =undo-tree=
 
 # I like tree-based undo management. I only rarely need it, but when I do, oh boy.
 
@@ -419,7 +419,7 @@ I use =eglot= as my LSP client.
   (use-package eglot)
 #+end_src
 
-# ** Coq
+** Coq
 
 # I use =company-coq-mode=, which really helps make Proof General a more useful IDE.
 
@@ -592,7 +592,7 @@ Indent everything by 2 spaces.
 
 ** Lisps
 
-# *** Racket
+*** Racket
 
 # #+begin_src emacs-lisp
 #   (use-package racket-mode)
@@ -694,7 +694,7 @@ Add =~/.local/bin= to load path. That's where =virtualenv= is installed, and
 we'll need that for =jedi=.
 
 #+begin_src emacs-lisp
-  (zb/append-to-path "C:\Python38\Scripts")
+  (zb/append-to-path "C:\\Python38\\Scripts")
 ;;  (zb/append-to-path "~/.local/bin")
 #+end_src
 
@@ -763,7 +763,7 @@ Indent with 2 spaces.
                     sh-indentation 2)))
 #+end_src
 
-# ** Scala
+** Scala
 
 # Ensure that =scala-mode= and =sbt-mode= are installed.
 
@@ -787,7 +787,7 @@ Indent with 2 spaces.
 #   (evil-define-key 'normal ensime-mode-map (kbd "M-.") 'ensime-edit-definition)
 # #+end_src
 
-# ** Terraform
+** Terraform
 
 # Install =terraform-mode=.
 
