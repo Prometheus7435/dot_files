@@ -34,13 +34,13 @@ Always compile packages, and use the newest version available.
 
 ** Who am I? Where am I?
 
-#+begin_src emacs-lisp
-  (setq user-full-name "Zachary Bombay"
-        user-mail-address "zacharybombay@gmail.com"
-        calendar-latitude 39.034655
-        calendar-longitude -77.380606
-        calendar-location-name "Sterling, VA")
-#+end_src
+# #+begin_src emacs-lisp
+#   (setq user-full-name ""
+#         user-mail-address ""
+#         calendar-latitude 0.0
+#         calendar-longitude 0.0
+#         calendar-location-name "")
+# #+end_src
 
 # * Add =resources= to =load-path=
 
@@ -115,6 +115,8 @@ I don't usually use the menu or scroll bar, and they take up useful space.
   (scroll-bar-mode -1)
   (global-linum-mode t)
   (column-number-mode t)
+;;  (setq inhibit-startup-message t)
+  (setq ido-mode t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
 
@@ -157,7 +159,9 @@ This gives me a truly lovely ribbon-based modeline.
     (use-package moody
       :config
       (setq x-underline-at-descent-line t
-	    moody-mode-line-height 30))
+	    moody-mode-line-height 30)
+    (moody-replace-mode-line-buffer-identification)
+    (moody-replace-vc-mode))
 #+end_src
 
 ** Set default font and configure font resizing
@@ -690,7 +694,8 @@ Add =~/.local/bin= to load path. That's where =virtualenv= is installed, and
 we'll need that for =jedi=.
 
 #+begin_src emacs-lisp
-  (zb/append-to-path "~/.local/bin")
+  (zb/append-to-path "C:\Python38\Scripts")
+;;  (zb/append-to-path "~/.local/bin")
 #+end_src
 
 Enable =elpy=. This provides automatic indentation, auto-completion, syntax
@@ -733,8 +738,6 @@ Configure Jedi along with the associated =company= mode:
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:complete-on-dot t)
 #+end_src
-
-
 
 ** Rust
 
@@ -864,12 +867,11 @@ I add a bunch of hooks to =term-mode=:
               (goto-address-mode)
               (define-key term-raw-map (kbd "C-y") 'zb/term-paste)
               (define-key term-raw-map (kbd "<mouse-2>") 'zb/term-paste)
-              (define-key term-raw-map (kbd "M-o") 'other-window)
-              (setq yas-dont-activate t)))
+              (define-key term-raw-map (kbd "M-o") 'other-window)))
+;;              (setq yas-dont-activate t)))
 #+end_src
 
 * Publishing and task management with Org-mode
-
 
 I'd like the initial scratch buffer to be in Org:
 
@@ -1349,28 +1351,28 @@ use for DVIs.
 #+end_src
 
 ** Sciences Configuration
-#+begin_src emacs-lisp
-    (use-package auctex-lua)
-    (use-package auctex-latexmk)
-    (use-package textmate)
-    (use-package cdlatex)
-    (use-package latex-extra)
-    (use-package latex-math-preview)
-    (use-package latex-unicode-math-mode)
-    (use-package ebib)
-#+end_src
+# #+begin_src emacs-lisp
+#     (use-package auctex-lua)
+#     (use-package auctex-latexmk)
+#     (use-package textmate)
+#     (use-package cdlatex)
+#     (use-package latex-extra)
+#     (use-package latex-math-preview)
+#     (use-package latex-unicode-math-mode)
+#     (use-package ebib)
+# #+end_src
 
 
-Enable a minor mode for dealing with math (it adds a few useful keybindings),
-and always treat the current file as the "main" file. That's intentional, since
-I'm usually actually in an org document.
+# Enable a minor mode for dealing with math (it adds a few useful keybindings),
+# and always treat the current file as the "main" file. That's intentional, since
+# I'm usually actually in an org document.
 
-#+begin_src emacs-lisp
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (LaTeX-math-mode)
-              (setq TeX-master t)))
-#+end_src
+# #+begin_src emacs-lisp
+#   (add-hook 'LaTeX-mode-hook
+#             (lambda ()
+#               (LaTeX-math-mode)
+#               (setq TeX-master t)))
+# #+end_src
 
 * Blogging
 
@@ -1818,8 +1820,9 @@ I keep my snippets in =~/.emacs/snippets/text-mode=, and I always want =yasnippe
 enabled.
 
 #+begin_src emacs-lisp
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets/text-mode"))
-  (yas-global-mode 1)
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+;;  (setq yas-snippet-dirs '("~/.emacs.d/snippets/text-mode"))
+  (yas-global-mode t)
 #+end_src
 
 I /don’t/ want =yas= to automatically indent the snippets it inserts. Sometimes
