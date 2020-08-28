@@ -100,6 +100,13 @@ Define a big ol' bunch of handy utility functions.
 #+end_src
 
 * UI preferences
+** UTF-8 complience
+#+begin_src emacs-lisp
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8)
+#+end_src
 ** =treemacs=
 # #+begin_src emacs-lisp
 #   (use-package treemacs)
@@ -723,11 +730,11 @@ Use =flycheck= for syntax checking:
 
 Format code according to PEP8 on save:
 
-#+begin_src emacs-lisp
-  (use-package py-autopep8)
-  (require 'py-autopep8)
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-#+end_src
+# #+begin_src emacs-lisp
+#   (use-package py-autopep8)
+#   (require 'py-autopep8)
+#   (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+# #+end_src
 
 Configure Jedi along with the associated =company= mode:
 
