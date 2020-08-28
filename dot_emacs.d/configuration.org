@@ -711,6 +711,8 @@ checking, etc.
 #+begin_src emacs-lisp
   (use-package elpy)
   (elpy-enable)
+  (setq python-shell-interpreter "python"
+        python-shell-interpreter-args "-i")
 #+end_src
 
 Use =flycheck= for syntax checking:
