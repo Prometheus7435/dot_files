@@ -116,7 +116,9 @@ I don't usually use the menu or scroll bar, and they take up useful space.
   (global-linum-mode t)
   (column-number-mode t)
 ;;  (setq inhibit-startup-message t)
-  (setq ido-mode t)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
 
