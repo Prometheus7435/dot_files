@@ -100,18 +100,23 @@ Define a big ol' bunch of handy utility functions.
 #+end_src
 
 * UI preferences
+
 ** UTF-8 complience
+
 #+begin_src emacs-lisp
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (set-terminal-coding-system 'utf-8)
   (setq-default buffer-file-coding-system 'utf-8)
 #+end_src
+
 ** =treemacs=
+
 # #+begin_src emacs-lisp
 #   (use-package treemacs)
 # ;;  (treemacs-enable)
 # #+end_src
+
 ** Tweak window chrome
 
 I don't usually use the menu or scroll bar, and they take up useful space.
@@ -148,7 +153,7 @@ Why not?
 ** Load up a theme
 #+begin_src emacs-lisp
   (use-package abyss-theme)
-  ;; (load-theme 'abyss t)
+  (load-theme 'abyss t)
 #+end_src
 
     # abyss-theme
@@ -169,8 +174,8 @@ This gives me a truly lovely ribbon-based modeline.
       :config
       (setq x-underline-at-descent-line t
 	    moody-mode-line-height 30)
-    (moody-replace-mode-line-buffer-identification)
-    (moody-replace-vc-mode))
+    (moody-replace-mode-line-buffer-identification))
+;;    (moody-replace-vc-mode))
 #+end_src
 
 ** Set default font and configure font resizing
@@ -703,8 +708,8 @@ Add =~/.local/bin= to load path. That's where =virtualenv= is installed, and
 we'll need that for =jedi=.
 
 #+begin_src emacs-lisp
-  (zb/append-to-path "C:\\Python38\\Scripts")
-;;  (zb/append-to-path "~/.local/bin")
+;;  (zb/append-to-path "C:\\Python38\\Scripts")
+  (zb/append-to-path "~/.local/bin")
 #+end_src
 
 Enable =elpy=. This provides automatic indentation, auto-completion, syntax
@@ -876,8 +881,8 @@ I add a bunch of hooks to =term-mode=:
               (goto-address-mode)
               (define-key term-raw-map (kbd "C-y") 'zb/term-paste)
               (define-key term-raw-map (kbd "<mouse-2>") 'zb/term-paste)
-              (define-key term-raw-map (kbd "M-o") 'other-window)))
-;;              (setq yas-dont-activate t)))
+              (define-key term-raw-map (kbd "M-o") 'other-window))
+              (setq yas-dont-activate t))
 #+end_src
 
 * Publishing and task management with Org-mode
