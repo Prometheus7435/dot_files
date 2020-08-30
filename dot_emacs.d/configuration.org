@@ -171,6 +171,24 @@ This gives me a truly lovely ribbon-based modeline.
     (moody-replace-vc-mode))
 #+end_src
 
+
+** Use =minions= to hide all minor modes
+
+I never want to see a minor mode, and manually adding =:diminish= to every
+use-package declaration is a hassle. This uses =minions= to hide all the minor
+modes in the modeline. Nice!
+
+By default there's a =;-)= after the major mode; that's an adorable default, but
+I'd rather skip it.
+
+#+begin_src emacs-lisp
+   (use-package minions
+     :config
+     (setq minions-mode-line-lighter ""
+           minions-mode-line-delimiters '("" . ""))
+     (minions-mode 1))
+#+end_src
+
 ** Set default font and configure font resizing
 
 I'm partial to Source Code Pro.
